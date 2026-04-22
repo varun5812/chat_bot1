@@ -3,9 +3,15 @@ services:
     name: customer-support-rag-chatbot
     env: python
     plan: free
-    buildCommand: python -m pip install --upgrade pip setuptools wheel && python -m pip install -r requirements.txt
+    buildCommand: mkdir -p /tmp/cargo /tmp/pip-cache && CARGO_HOME=/tmp/cargo PIP_CACHE_DIR=/tmp/pip-cache python -m pip install --upgrade pip setuptools wheel && CARGO_HOME=/tmp/cargo PIP_CACHE_DIR=/tmp/pip-cache python -m pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: CARGO_HOME
+        value: /tmp/cargo
+      - key: PIP_CACHE_DIR
+        value: /tmp/pip-cache
       - key: LLM_PROVIDER
         value: openai
       - key: OPENAI_MODEL
