@@ -1,0 +1,22 @@
+Customer Support Knowledge Base
+
+Password Reset
+Customers can reset their password from the login page by selecting "Forgot password". A secure reset link will be sent to the registered email address. The link expires after 30 minutes.
+
+Refund Policy
+Customers can request a refund within 30 days of purchase if the product or subscription is eligible. The customer should contact support with the order ID and reason for the refund request.
+
+Shipping Policy
+Standard shipping usually takes 5 to 7 business days. Express shipping usually takes 2 to 3 business days. Shipping times may vary by region and public holidays.
+
+Billing Support
+For billing questions, customers should provide their account email, invoice number, and payment date. Support can help with duplicate charges, failed payments, and invoice copies.
+
+Support Hours
+Customer support is available Monday to Friday from 9 AM to 6 PM. Requests submitted outside business hours will be reviewed on the next business day.
+
+Account Deactivation
+Customers can request account deactivation by contacting support from their registered email address. The support team verifies ownership before processing the request.
+
+Escalation
+If a customer reports fraud, account takeover, data loss, or legal concerns, the issue should be escalated to a human support specialist.
