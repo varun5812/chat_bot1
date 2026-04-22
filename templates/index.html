@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customer Support Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="chat-panel" aria-label="Customer support chatbot">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">RAG Customer Support</p>
+            <h1>Support Assistant</h1>
+          </div>
+          <span class="status">Online</span>
+        </header>
+
+        <div id="chatMessages" class="chat-messages">
+          <article class="message assistant">
+            <p>Hello. Ask me about refunds, password resets, shipping, billing, or support hours.</p>
+          </article>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <input
+            id="messageInput"
+            type="text"
+            autocomplete="off"
+            placeholder="Type your question..."
+            aria-label="Type your question"
+            required
+          >
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <aside class="source-panel" aria-label="Retrieved sources">
+        <h2>Retrieved Sources</h2>
+        <div id="sources" class="sources">
+          <p class="empty">Sources will appear after each answer.</p>
+        </div>
+      </aside>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  </body>
+</html>
