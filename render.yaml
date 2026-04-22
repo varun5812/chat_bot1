@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: customer-support-rag-chatbot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: LLM_PROVIDER
+        value: openai
+      - key: OPENAI_MODEL
+        value: gpt-3.5-turbo
+      - key: MISTRAL_MODEL
+        value: mistral-small-latest
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: CHROMA_DB_DIR
+        value: data/chroma
+      - key: DOCUMENTS_DIR
+        value: data/raw
+      - key: RETRIEVAL_TOP_K
+        value: "4"
+      - key: AUTO_INGEST_ON_START
+        value: "true"
+      - key: FLASK_SECRET_KEY
+        generateValue: true
