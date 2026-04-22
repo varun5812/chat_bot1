@@ -10,7 +10,6 @@ from langchain_community.document_loaders import (
     CSVLoader,
     PyPDFLoader,
     TextLoader,
-    UnstructuredMarkdownLoader,
 )
 from langchain_huggingface import HuggingFaceEmbeddings
 
@@ -50,7 +49,7 @@ def build_loader(path: Path):
     if suffix == ".csv":
         return CSVLoader(str(path))
     if suffix == ".md":
-        return UnstructuredMarkdownLoader(str(path))
+        return TextLoader(str(path), encoding="utf-8")
     if suffix == ".txt":
         return TextLoader(str(path), encoding="utf-8")
 
