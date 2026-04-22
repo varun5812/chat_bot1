@@ -4,8 +4,7 @@ from typing import Deque
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_mistralai import ChatMistralAI
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 
 from src.config import Settings
@@ -70,6 +69,13 @@ class RAGService:
         if self.settings.llm_provider == "mistral":
             if not self.settings.mistral_api_key:
                 raise ValueError("MISTRAL_API_KEY is required when LLM_PROVIDER=mistral.")
+            try:
+                from langchain_mistralai import ChatMistralAI
+            except ImportError as exc:
+                raise ValueError(
+                    "Mistral support is optional for deployment. Add "
+                    "'langchain-mistralai' to requirements.txt to use LLM_PROVIDER=mistral."
+                ) from exc
             return ChatMistralAI(
                 api_key=self.settings.mistral_api_key,
                 model=self.settings.mistral_model,
